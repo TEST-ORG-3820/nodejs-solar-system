@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('VM Node Version'){
             steps{
-                '''
+                sh '''
 
                 node -v
 
