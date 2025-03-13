@@ -22,7 +22,7 @@ pipeline{
 
                 }
 
-                stage('OWASP Dependency Check'){
+                stage('OWASP-Dependency Check'){
                     steps{
                         dependencyCheck additionalArguments: '''
                             --scan \'./\'
