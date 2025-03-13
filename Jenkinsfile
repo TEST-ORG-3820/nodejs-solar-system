@@ -28,7 +28,7 @@ pipeline{
                             --scan \'./\'
                             --out \'./\'
                             --format \'ALL\'
-                            --prettyPrint''', odcInstallation: 'OWASP-DepCheck-10'
+                            --prettyPrint''', odcInstallation: 'OWASP-DepCheck-12'
 
                         dependencyCheckPublisher failedTotalCritical: 1, pattern: 'dependency-check-report.xml', stopBuild: true
                     }
