@@ -25,8 +25,6 @@ pipeline{
                 stage('OWASP-Dependency Check'){
                     steps{
                         dependencyCheck additionalArguments: '''
-                                --updateonly
-                                --nvdApiKey '${NVD_API_KEY}'
                                 --scan \'./\'
                                 --out \'./\'
                                 --format \'ALL\'
