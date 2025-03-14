@@ -25,10 +25,13 @@ pipeline{
                 stage('OWASP-Dependency Check'){
                     steps{
                         dependencyCheck additionalArguments: '''
-                            --scan \'./\'
-                            --out \'./\'
-                            --format \'ALL\'
-                            --prettyPrint''', odcInstallation: 'OWASP-Depcheck-12'
+                                --updateonly
+                                --nvdApiKey '${NVD_API_KEY}'
+                                --scan './'
+                                --out './'
+                                --format 'ALL'
+                                --prettyPrint
+                            ''', odcInstallation: 'OWASP-Depcheck-12'
 
                         //dependencyCheckPublisher failedTotalCritical: 1, pattern: 'dependency-check-report.xml', stopBuild: true
                     }
