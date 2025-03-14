@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     tools{
-        nodejs 'nodejs-23-9-0'
+        nodejs 'NODE-JS-23-9'
     }
 
     stages{
@@ -28,7 +28,7 @@ pipeline{
                             --scan \'./\'
                             --out \'./\'
                             --format \'ALL\'
-                            --prettyPrint''', odcInstallation: 'OWASP-DepCheck-11'
+                            --prettyPrint''', odcInstallation: 'OWASP-Depcheck-12'
 
                         //dependencyCheckPublisher failedTotalCritical: 1, pattern: 'dependency-check-report.xml', stopBuild: true
                     }
