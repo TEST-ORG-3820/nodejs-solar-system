@@ -27,9 +27,9 @@ pipeline{
                         dependencyCheck additionalArguments: '''
                                 --updateonly
                                 --nvdApiKey '${NVD_API_KEY}'
-                                --scan './'
-                                --out './'
-                                --format 'ALL'
+                                --scan \'./\'
+                                --out \'./\'
+                                --format \'ALL\'
                                 --prettyPrint
                             ''', odcInstallation: 'OWASP-Depcheck-12'
 
