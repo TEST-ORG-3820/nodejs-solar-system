@@ -46,5 +46,11 @@ pipeline{
             }
 
         }
+
+        stage('Build Docker Image'){
+            steps{
+                sh 'docker build -t bala2025/sloar-system:$GIT_COMMIT .'
+            }
+        }
     }
 }
