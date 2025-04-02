@@ -54,7 +54,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t bala2025/solar-system:$GIT_COMMIT .'
+                sh 'docker build -t balakumarpalanisamy/solar-system:$GIT_COMMIT .'
             }
         }
 
@@ -100,8 +100,8 @@ pipeline {
 
         stage('Push Docker Image'){
             steps{
-                withDockerRegistry(credentialsId: 'docker-hub-credentials', url: 'https://hub.docker.com/repositories/balakumarpalanisamy'){ 
-                    sh 'docker push bala2025/solar-system:$GIT_COMMIT'
+                withDockerRegistry(credentialsId: 'docker-hub-credentials', url: ""){ 
+                    sh 'docker push balakumarpalanisamy/solar-system:$GIT_COMMIT'
                 } 
             }
         }
