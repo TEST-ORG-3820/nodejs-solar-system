@@ -54,7 +54,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t bala2025/solar-system:$GIT_COMMIT'
+                sh 'docker build -t bala2025/solar-system:$GIT_COMMIT .'
             }
         }
 
