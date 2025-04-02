@@ -61,13 +61,13 @@ pipeline {
         stage('Trivy Vulnerability Scanner') {
             steps {
                 sh '''
-                    trivy image bala2025/solar-system:$GIT_COMMIT \
+                    trivy image balakumarpalanisamy/solar-system:$GIT_COMMIT \
                         --severity LOW,MEDIUM,HIGH \
                         --exit-code 0 \
                         --quiet \
                         --format json -o trivy-image-MEDIUM-results.json
 
-                    trivy image bala2025/solar-system:$GIT_COMMIT \
+                    trivy image balakumarpalanisamy/solar-system:$GIT_COMMIT \
                         --severity CRITICAL \
                         --exit-code 1 \
                         --quiet \
