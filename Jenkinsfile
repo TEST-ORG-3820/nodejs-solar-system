@@ -120,21 +120,22 @@ pipeline {
             steps{
                 script {
                     sshagent (['azure-vm']) {
-                        sh """
-                            ssh -o StrictHostKeyChecking=no azureuser@4.206.91.54 << 'EOF'
-                                if sudo docker ps -a | grep -q "solar-system"; then
-                                    echo "Container found. Stopping..."
+                        sh '''
+                            ssh -o StrictHostKeyChecking=no azureuser@4.206.91.54 "
+                                if sudo docker ps -a | grep -q 'solar-system'; then
+                                    echo 'Container found. Stopping...'
                                     sudo docker stop solar-system && sudo docker rm solar-system
-                                    echo "Container stopped and removed."
+                                    echo 'Container stopped and removed.'
                                 fi
 
-                                sudo docker run --name solar-system \\
-                                    -e MONGO_URI=${MONGO_URI} \\
-                                    -e MONGO_USERNAME=${MONGO_USERNAME} \\
-                                    -e MONGO_PASSWORD=${MONGO_PASSWORD} \\
-                                    -p 3000:3000 -d balakumarpalanisamy/solar-system:${GIT_COMMIT}
-                        EOF
-                        """
+                                sudo docker run --name solar-system \
+                                    -e MONGO_URI=$MONGO_URI \
+                                    -e MONGO_USERNAME=$MONGO_USERNAME \
+                                    -e MONGO_PASSWORD=$MONGO_PASSWORD \
+                                    -p 3000:3000 -d balakumarpalanisamy/solar-system:$GIT_COMMIT
+                            "
+                        '''
+
 
                     }
                 }
